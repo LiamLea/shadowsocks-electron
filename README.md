@@ -206,32 +206,18 @@ export HTTP_PROXY=http://127.0.0.1:<port>
 ### 3. Run commands in terminal
 
 ```bash
-# [01]clone
-$: git clone https://github.com/nojsja/shadowsocks-electron.git
-$: cd shadowsocks-electron
+$ git clone https://github.com/LiamLea/shadowsocks-electron.git
 
-# for china developers
-$: npm config set electron_mirror http://npm.taobao.org/mirrors/electron/
+$ cd shadowsocks-electron
+$ npm i -g yarn
 
-# [02]npm
-$: npm i -g yarn
-$: yarn i
+#HTTPS_PROXY="http://127.0.0.1:1095" ELECTRON_GET_USE_PROXY="http://127.0.0.1:1095"
+$ yarn install
 
-# [03]run scripts/download.js for env prepare
-$: cd scripts
-$: node download.js
-
-# for ubuntu developers
-$: cp pac/gfwlist.txt ~/.config/shadowsocks-electron/pac/
-# for mac developers
-$: cp pac/gfwlist.txt ~/Library/Application\ Support/shadowsocks-electron/pac/
-
-# [04]start
-$: yarn start
+$ yarn start
 ```
 
 ### 4.build
-* Node@^`14.17.6`
 ```shell
 $ sudo apt install shadowsocks-libev binutils
 
@@ -239,6 +225,7 @@ $ git clone https://github.com/LiamLea/shadowsocks-electron.git
 
 $ cd shadowsocks-electron
 $ npm i -g yarn
+#HTTPS_PROXY="http://127.0.0.1:1095" ELECTRON_GET_USE_PROXY="http://127.0.0.1:1095"
 $ yarn install
 
 # if you are in china, use a proxy: HTTP_PROXY=""
