@@ -215,7 +215,7 @@ $: npm config set electron_mirror http://npm.taobao.org/mirrors/electron/
 
 # [02]npm
 $: npm i -g yarn
-$: npm i
+$: yarn i
 
 # [03]run scripts/download.js for env prepare
 $: cd scripts
@@ -227,7 +227,23 @@ $: cp pac/gfwlist.txt ~/.config/shadowsocks-electron/pac/
 $: cp pac/gfwlist.txt ~/Library/Application\ Support/shadowsocks-electron/pac/
 
 # [04]start
-$: npm start
+$: yarn start
+```
+
+### 4.build
+* Node@^`14.17.6`
+```shell
+$ sudo apt install shadowsocks-libev binutils
+
+$ git clone https://github.com/LiamLea/shadowsocks-electron.git
+
+$ cd shadowsocks-electron
+$ npm i -g yarn
+$ yarn install
+
+# if you are in china, use a proxy: HTTP_PROXY=""
+$ yarn build
+$ yarn pack:linux
 ```
 
 ## XI. Mention
