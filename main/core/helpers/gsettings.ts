@@ -28,8 +28,10 @@ export const setGlobalProxy = async (host: string, port: number) => {
   const portSet = await execAsync(
     `gsettings set org.gnome.system.proxy.socks port ${port}`
   );
+  var splitedHosts = ignoredHosts.split(",");
+  var joined = '["' + splitedHosts.join('", "') + '"]';
   const bypassSet = await execAsync(
-    `gsettings set org.gnome.system.proxy ignore-hosts "['${ignoredHosts}']"`
+    `gsettings set org.gnome.system.proxy ignore-hosts '${joined}'`
   );
   return (
     manualSet.code === 0 &&
