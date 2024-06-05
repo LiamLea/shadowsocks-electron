@@ -11,9 +11,11 @@ export type jsonResult = {
 export function get(url: string): Promise<jsonResult> {
   const isHttps = /^(https:\/\/)/.test(url);
   const httpLib = isHttps ? https : http;
-
+  const headers = {
+    'User-Agent': 'fetch-agent',
+  };
   return new Promise((resolve) => {
-    const req = httpLib.get(url, (res: IncomingMessage) => {
+    const req = httpLib.get(url, { headers }, (res: IncomingMessage) => {
       let data : any = '';
 
       res.on('data', (chunk: string) => {
